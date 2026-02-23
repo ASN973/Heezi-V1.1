@@ -1,0 +1,196 @@
+{
+    "levelNumber": 3,
+    "title": "Lettre à la Mairie",
+    "levelType": "practice",
+    "character": "mouton",
+    "intro": "Je veux envoyer une lettre à la mairie pour réserver une salle de réunion pour mon association. Peux-tu m'aider ?",
+    "tasks": [
+        {
+            "intro": "On va écrire ensemble, pas à pas, une lettre en bonne et due forme à la mairie. J'ai déjà rédigé une partie de la lettre pour toi. Je te montrerai ce qu'il faut compléter.",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "1.1 Le nom",
+                        "text2": "Pour commencer, tu peux saisir le nom de l'association : \"Heezi\""
+                    },
+                    "cursor": {
+                        "elementId": "nomInput"
+                    },
+                    "expected": {
+                        "type": "blockText",
+                        "text": "Heezi",
+                        "blockId": "nomInput"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.2 L'adresse",
+                        "text2": "Et maintenant, tu peux saisir l'adresse : \"123 Rue de la Paix 97310 Kourou\".\nVeille bien à respecter les majuscules et les minuscules"
+                    },
+                    "cursor": {
+                        "elementId": "adresseInput"
+                    },
+                    "expected": {
+                        "type": "blockText",
+                        "text": "123 Rue de la Paix 97310 Kourou",
+                        "blockId": "adresseInput"
+                    },
+                    "mascotPosition": {
+                        "top": 0
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.3 L'objet",
+                        "text2": "Et aussi l'objet : \"Réservation\""
+                    },
+                    "cursor": {
+                        "elementId": "objetInput"
+                    },
+                    "expected": {
+                        "type": "blockText",
+                        "text": "Réservation",
+                        "blockId": "objetInput"
+                    },
+                    "mascotPosition": {
+                        "top": 0
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.4 La signature",
+                        "text2": "Et pour finir, la signature : \"Heezi\""
+                    },
+                    "cursor": {
+                        "elementId": "signatureInput"
+                    },
+                    "expected": {
+                        "type": "blockText",
+                        "text": "Heezi",
+                        "blockId": "signatureInput"
+                    },
+                    "mascotPosition": {
+                        "top": 0
+                    }
+                }
+            ]
+        },
+        {
+            "intro": "On va maintenant ajouter un peu de mise en forme.",
+            "steps": [
+                {
+                    "preActions": [
+                        {
+                            "type": "selectBlock",
+                            "blockId": ""
+                        }
+                    ],
+                    "tip": {
+                        "text1": "2.1 La mise en forme",
+                        "text2": "Tu peux à présent mettre en gras l'objet. Pour commencer, double-clique sur l'objet que tu as saisi"
+                    },
+                    "cursor": {
+                        "elementId": "objetInput"
+                    },
+                    "expected": {
+                        "type": "selectedBlock",
+                        "blockId": "objetInput"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "2.1 La mise en forme",
+                        "text2": "Et tu peux à présent le mettre en gras en cliquant sur le bouton gras"
+                    },
+                    "cursor": {
+                        "elementId": "boldButton"
+                    },
+                    "expected": {
+                        "type": "style",
+                        "blockId": "objetInput",
+                        "property": "fontWeight",
+                        "value": "bold"
+                    }
+                }
+            ]
+        }
+    ],
+    "contentBlocks": [
+        {
+            "type": "textInput",
+            "blockId": "nomInput",
+            "placeholder": "Nom",
+            "text": ""
+        },
+        {
+            "type": "textInput",
+            "blockId": "adresseInput",
+            "placeholder": "Adresse",
+            "text": ""
+        },
+        {
+            "type": "text",
+            "text": "Mairie de Kourou",
+            "blockStyle": {
+                "marginTop": 24,
+                "marginLeft": "auto"
+            },
+            "blockId": "body"
+        },
+        {
+            "type": "view",
+            "style": {
+                "flexDirection": "row",
+                "alignItems": "center",
+                "justifyContent": "flex-start",
+                "gap": 8,
+                "marginTop": "auto"
+            },
+            "children": [
+                {
+                    "type": "text",
+                    "text": "Objet :",
+                    "style": {
+                        "fontWeight": "bold"
+                    },
+                    "blockStyle": {
+                        "alignSelf": "center"
+                    },
+                    "blockId": "objet"
+                },
+                {
+                    "type": "textInput",
+                    "blockId": "objetInput",
+                    "placeholder": "Objet",
+                    "blockStyle": {
+                        "alignSelf": "center",
+                        "flex": 1
+                    },
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Bonjour, nous voudrions réserver une salle pour nos réunions. Nous sommes 10 membres. Nous aimerions nous réunir le mercredi de 17h à 19h, une fois par mois. Pouvez-vous nous aider ?",
+            "blockStyle": {
+                "marginTop": 24,
+                "marginBottom": "auto"
+            },
+            "blockId": "body"
+        },
+        {
+            "type": "textInput",
+            "blockId": "signatureInput",
+            "placeholder": "Signature",
+            "blockStyle": {
+                "marginTop": "auto"
+            },
+            "text": ""
+        }
+    ],
+    "endLevelReport": {
+        "title": "Félicitations !",
+        "description": "Tu es maintenant capable de saisir et de mettre en forme un texte dans un éditeur de texte."
+    }
+}

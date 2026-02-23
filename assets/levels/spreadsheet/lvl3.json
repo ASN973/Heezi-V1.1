@@ -1,0 +1,170 @@
+{
+    "levelNumber": 3,
+    "title": "Tableau de dépenses",
+    "levelType": "practice",
+    "character": "chat",
+    "intro": "Bonjour ! Je dois organiser un évènement et j'ai besoin de compter les dépenses. Tu peux m'aider ?",
+    "cellsEnabled": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+    ],
+    "spreadsheetData": {
+        "cellsValues": {
+            "A1": "Intitulé",
+            "A2": "Salle",
+            "A3": "Décoration",
+            "A4": "Promotion",
+            "A5": "Echantillons",
+            "A6": "Traiteur",
+            "A7": "Total",
+            "B1": "Montant",
+            "B2": "",
+            "B3": "",
+            "B4": "",
+            "B5": "",
+            "B6": "",
+            "B7": ""
+        },
+        "cellsStyles": {
+            "A1": {
+                "fontWeight": "bold"
+            },
+            "B1": {
+                "fontWeight": "bold"
+            }
+        },
+        "cellsSelected": []
+    },
+    "tasks": [
+        {
+            "intro": "Pour cette mission, on va saisir les montants des dépenses puis calculer leur somme automatiquement.",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "Etape 1.a",
+                        "text2": "En premier, on va saisir le montant de la salle (500€). Sélectionne la case B2 et saisis le nombre 500"
+                    },
+                    "cursor": {
+                        "elementId": "B2"
+                    },
+                    "expected": {
+                        "type": "cellValue",
+                        "cell": "B2",
+                        "value": "500"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 1.b",
+                        "text2": "Super ! Il faut aussi saisir 250 pour la décoration"
+                    },
+                    "cursor": {
+                        "elementId": "B3"
+                    },
+                    "expected": {
+                        "type": "cellValue",
+                        "cell": "B3",
+                        "value": "250"
+                    },
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 1.c",
+                        "text2": "Génial. Saisis cette fois 200 pour la promotion"
+                    },
+                    "cursor": {
+                        "elementId": "B4"
+                    },
+                    "expected": {
+                        "type": "cellValue",
+                        "cell": "B4",
+                        "value": "200"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 1.d",
+                        "text2": "Parfait ! Et saisis aussi 380 pour les échantillons"
+                    },
+                    "cursor": {
+                        "elementId": "B5"
+                    },
+                    "expected": {
+                        "type": "cellValue",
+                        "cell": "B5",
+                        "value": "380"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 1.e",
+                        "text2": "Et pour finir, saisis 320 pour le traiteur"
+                    },
+                    "cursor": {
+                        "elementId": "B6"
+                    },
+                    "expected": {
+                        "type": "cellValue",
+                        "cell": "B6",
+                        "value": "320"
+                    }
+                }
+            ]
+        },
+        {
+            "intro": "Bravo ! Maintenant qu'on a les dépenses, nous allons montrer leur somme.",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "Etape 2.a",
+                        "text2": "Pour te faciliter la tâche, j'ai déjà saisi le total des dépenses pour toi dans la case B7. Il faudrait juste d'abord que tu la sélectionnes"
+                    },
+                    "preActions": [
+                        {
+                            "type": "cellValue",
+                            "cell": "B7",
+                            "value": "1650"
+                        },
+                        {
+                            "type": "select",
+                            "cells": ""
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "B7"
+                    },
+                    "expected": {
+                        "type": "cellSelected",
+                        "cell": "B7"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 2.b",
+                        "text2": "Maintenant, mets la valeur en gras pour qu'elle soit plus visible"
+                    },
+                    "cursor": {
+                        "elementId": "boldButton"
+                    },
+                    "expected": {
+                        "type": "cellStyle",
+                        "cell": "B7",
+                        "style": {
+                            "fontWeight": "bold"
+                        }
+                    },
+                    "mascotPosition": {
+                        "top": 100
+                    }
+                }
+            ]
+        }
+    ],
+    "endLevelReport": {
+        "title": "Félicitations !",
+        "description": "Tu es maintenant capable de te repérer dans un tableur, de saisir des valeurs et de modifier leur mise en forme."
+    }
+}

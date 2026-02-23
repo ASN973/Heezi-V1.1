@@ -1,0 +1,215 @@
+{
+    "levelNumber": 1,
+    "levelType": "lesson",
+    "character": "mascotte",
+    "intro": "Coucou ! Moi c'est Heezi. Ensemble, nous allons apprendre à utiliser un tableur.",
+    "cellsEnabled": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "B2",
+        "B3",
+        "L10",
+        "L13"
+    ],
+    "tasks": [
+        {
+            "intro": "On commence par de petits mot-clés pour se repérer",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "1.a Les cellules",
+                        "text2": "On appelle ces petites cases des 'cellules'"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "A1:L10"
+                            ]
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "B3"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.b Les colonnes",
+                        "text2": "Ici, on a une colonne"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "A1:A10"
+                            ]
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "A5"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.c Les rangées",
+                        "text2": "Et ici, on a une rangée"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "A1:L1"
+                            ]
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "C1"
+                    }
+                }
+            ]
+        },
+        {
+            "intro": "Bien ! Maintenant, on va apprendre à repérer les cellules",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "Etape 2.a",
+                        "text2": "Comme tu peux le voir, chaque colonne est désignée par une lettre"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": ""
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "headerRow"
+                    },
+                    "highlight": {
+                        "elementId": "headerRow"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 2.b",
+                        "text2": "et chaque rangée par un numéro"
+                    },
+                    "cursor": {
+                        "elementId": "rowNumbersColumn"
+                    },
+                    "highlight": {
+                        "elementId": "rowNumbersColumn"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 2.c",
+                        "text2": "Une cellule peut donc être identifiée par la colonne et la rangée où elle se trouve"
+                    },
+                    "cursor": {
+                        "elementId": ""
+                    },
+                    "highlight": {
+                        "elementId": [
+                            "rowNumbersColumn",
+                            "headerRow"
+                        ]
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 2.d",
+                        "text2": "Par exemple, la cellule A1 est la première cellule de la première colonne et de la première rangée"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "A1"
+                            ]
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "A1"
+                    }
+                }
+            ]
+        },
+        {
+            "intro": "Maintenant, on va apprendre à modifier le texte des cellules",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "Etape 3.1",
+                        "text2": "Pour modifier la valeur d'une cellule, je vais d'abord la sélectionner. Par exemple, je sélectionne la cellule B2 en cliquant dessus"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "B2"
+                            ]
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "B2"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 3.b",
+                        "text2": "Maintenant, grâce à mon clavier, je peux entrer une valeur, comme par exemple : '123'"
+                    },
+                    "preActions": [
+                        {
+                            "type": "select",
+                            "cells": [
+                                "B2"
+                            ]
+                        },
+                        {
+                            "type": "cellValue",
+                            "cell": "B2",
+                            "value": "123"
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": ""
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "Etape 3.3",
+                        "text2": "Et pour finir, je peux mettre la valeur en gras en cliquant sur le bouton 'Gras'"
+                    },
+                    "preActions": [
+                        {
+                            "type": "cellStyle",
+                            "cell": "B2",
+                            "style": {
+                                "fontWeight": "bold"
+                            }
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "boldButton"
+                    }
+                }
+            ]
+        }
+    ],
+    "scenarioDialogEnd": [
+        {
+            "text": "Merci pour ton attention. J'espère que ça a été facile. N'hésite pas à revenir si besoin.",
+            "iconName": "heeziProud",
+            "position": "center"
+        }
+    ],
+    "endLevelReport": {
+        "title": "Merci pour ton attention !",
+        "description": "J'espère que ça a été facile."
+    }
+}

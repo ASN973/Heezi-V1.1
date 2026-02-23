@@ -1,0 +1,139 @@
+{
+    "levelNumber": 1,
+    "levelType": "lesson",
+    "character": "mascotte",
+    "intro": "Ensemble, nous allons apprendre à utiliser un éditeur de texte.",
+    "tasks": [
+        {
+            "intro": "On commence par de petits mot-clés pour se repérer.",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "1.a Les pages",
+                        "text2": "Un document contient une ou plusieurs pages."
+                    },
+                    "cursor": {
+                        "elementId": "contentPage"
+                    },
+                    "highlight": {
+                        "elementId": "contentPage"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "1.b Le contenu",
+                        "text2": "Le contenu de la page est ce qu'on voit à l'intérieur de la page. C'est souvent du texte mais ça peut aussi être des images, des tableaux par exemple."
+                    },
+                    "cursor": {
+                        "elementId": "pageContent"
+                    },
+                    "highlight": {
+                        "elementId": "pageContent"
+                    }
+                }
+            ]
+        },
+        {
+            "intro": "Et maintenant, comment saisir du texte",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "2.1 La saisie",
+                        "text2": "Pour saisir du texte, je clique d'abord à l'endroit du contenu où je veux ajouter le texte."
+                    },
+                    "cursor": {
+                        "elementId": "exempleInput"
+                    },
+                    "focus": {
+                        "elementId": "exempleInput"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "2.b Exemple de saisie",
+                        "text2": "Ensuite, avec mon clavier, je peux écrire le texte que je veux ajouter."
+                    },
+                    "cursor": {
+                        "elementId": ""
+                    },
+                    "focus": {
+                        "elementId": "exempleInput"
+                    },
+                    "preActions": [
+                        {
+                            "type": "blockText",
+                            "text": "Voilà, j'ai ajouté une phrase à la fin du texte déjà présent",
+                            "blockId": "exempleInput"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "intro": "Et, bien sûr, comment modifier du texte",
+            "steps": [
+                {
+                    "tip": {
+                        "text1": "3.a La sélection",
+                        "text2": "Je peux aussi sélectionner du texte déjà présent pour le modifier. Pour sélectionner du texte, je double-clique dessus."
+                    },
+                    "preActions": [
+                        {
+                            "type": "selectBlock",
+                            "blockId": "exempleInput"
+                        }
+                    ],
+                    "cursor": {
+                        "elementId": "exempleInput"
+                    },
+                    "focus": {
+                        "elementId": "exempleInput"
+                    }
+                },
+                {
+                    "tip": {
+                        "text1": "3.b La mise en forme",
+                        "text2": "Je peux par ensuite, par exemple, le mettre en gras. Pour cela, je clique sur le bouton gras."
+                    },
+                    "cursor": {
+                        "elementId": "boldButton"
+                    },
+                    "preActions": [
+                        {
+                            "type": "selectBlock",
+                            "blockId": "exempleInput"
+                        },
+                        {
+                            "type": "style",
+                            "blockId": "exempleInput",
+                            "value": {
+                                "fontWeight": "bold"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "contentBlocks": [
+        {
+            "type": "text",
+            "text": "Exemple",
+            "blockId": "exemple"
+        },
+        {
+            "type": "text",
+            "text": "Ceci est un exemple de texte."
+        },
+        {
+            "type": "textInput",
+            "blockId": "exempleInput",
+            "text": "",
+            "multiline": true
+        }
+    ],
+    "endLevelReport": {
+        "title": "Merci pour ton attention !",
+        "description": "J'espère que ça a été facile."
+    }
+}

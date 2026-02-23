@@ -1,0 +1,59 @@
+{
+    "levelNumber": 2,
+    "levelType": "quiz",
+    "character": "coq",
+    "intro": "Et maintenant, rien de mieux qu'un petit quiz sur l'éditeur de texte pour se rafraichir la mémoire.",
+    "tasks": [
+        {
+            "intro": "On commence par le vocabulaire de l'éditeur de texte.",
+            "steps": [
+                {
+                    "question": "Un document est composé de...",
+                    "answers": [
+                        {
+                            "text": "pages",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "feuilles"
+                        },
+                        {
+                            "text": "classeurs"
+                        }
+                    ]
+                },
+                {
+                    "question": "Une page peut contenir...",
+                    "answers": [
+                        {
+                            "text": "seulement du texte"
+                        },
+                        {
+                            "text": "du texte et des images entre autres",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "seulement des images"
+                        }
+                    ]
+                },
+                {
+                    "question": "Peut-on modifier du texte ?",
+                    "answers": [
+                        {
+                            "text": "Oui, en le sélectionnant d'abord",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Non, il faut créer un nouveau document"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "endLevelReport": {
+        "title": "Bravo !",
+        "description": "J'espère que ça t'a permis de consolider tes connaissances."
+    }
+}

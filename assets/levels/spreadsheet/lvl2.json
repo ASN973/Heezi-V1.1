@@ -1,0 +1,62 @@
+{
+    "levelNumber": 2,
+    "levelType": "quiz",
+    "character": "coq",
+    "intro": "Et maintenant, rien de mieux qu'un petit quiz pour se rafraichir la mémoire.",
+    "tasks": [
+        {
+            "intro": "On commence par le vocabulaire.",
+            "steps": [
+                {
+                    "question": "Comment s'appellent les cases dans un tableur ?",
+                    "answers": [
+                        {
+                            "text": "Les cellules",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Les losanges"
+                        },
+                        {
+                            "text": "Les cubes"
+                        }
+                    ]
+                },
+                {
+                    "question": "Chaque colonne est identifiée par...",
+                    "answers": [
+                        {
+                            "text": "Une lettre",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Un numéro"
+                        },
+                        {
+                            "text": "Un symbole"
+                        }
+                    ]
+                },
+                {
+                    "question": "Chaque rangée est identifiée par...",
+                    "answers": [
+                        {
+                            "text": "Une lettre"
+                        },
+                        {
+                            "text": "Un numéro",
+                            "isCorrect": true
+                        },
+                        {
+                            "text": "Un symbole"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "endLevelReport": {
+        "title": "Bravo !",
+        "description": "J'espère que ça t'a permis de consolider tes connaissances."
+    }
+}
