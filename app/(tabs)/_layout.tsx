@@ -179,16 +179,16 @@ const styles = StyleSheet.create({
     height: 42,
   },
   // Mobile (bottom tab bar) styles
-  tabBarStyleMobile: {
-    backgroundColor: "white",
-    elevation: 0,
-    shadowOpacity: 0,
-    height: 60,
-    paddingBottom: 8,
-    paddingTop: 8,
-    borderTopWidth: 1,
-    borderTopColor: "#E0E0E0",
-  },
+  // tabBarStyleMobile: {
+  //   backgroundColor: "white",
+  //   elevation: 0,
+  //   shadowOpacity: 0,
+  //   height: 60,
+  //   paddingBottom: 8,
+  //   paddingTop: 8,
+  //   borderTopWidth: 1,
+  //   borderTopColor: "#E0E0E0",
+  // },
   tabBarItemStyleMobile: {
     flexDirection: "column",
     alignItems: "center",

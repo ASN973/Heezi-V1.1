@@ -24,7 +24,10 @@ export default function RootLayout() {
     // <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
     <ThemeProvider value={CustomTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen 
+          name="(tabs)" 
+          options={{ headerShown: false }} 
+        />
         <Stack.Screen
           name="mission/[practiceTool]/[id]"
           options={{ headerShown: false }}
@@ -32,6 +35,14 @@ export default function RootLayout() {
         <Stack.Screen
           name="modal"
           options={{ presentation: "modal", title: "Modal" }}
+        />
+        <Stack.Screen
+          name="sign-in"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="register"
+          options={{ headerShown: false }}
         />
       </Stack>
 

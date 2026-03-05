@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from "firebase/app";
-import { auth, db } from '@/utils/firebase';
 import { useRouter } from 'expo-router';
-import { isMobile } from '@/utils/isMobile';
-import { SafeAreaView }  from "react-native-safe-area-context"
+//Initialise the app and the db
+import { auth, db } from 'utils/firebase'
 import {
   View,
   Text,
@@ -12,11 +11,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  SafeAreaView,
 } from 'react-native';
-
-// Initialize Firebase
-// const app  = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
 
 // Sign in
 async function signIn(email: string, password: string) {
@@ -26,6 +22,18 @@ async function signIn(email: string, password: string) {
     console.log('Logged in:', user.uid);
   } catch (error: any) {
     console.log('Login error:', error.code, error.message);
+  }
+}
+
+// Sign up
+async function signUp(email: string, password: string) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log('Created:', user.uid);
+    // optionally sendEmailVerification(user) here
+  } catch (error: any) {
+    console.log('Signup error:', error.code, error.message);
   }
 }
 
@@ -57,51 +65,49 @@ function LoginScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.wrapper}>
       <Text style={styles.title}>Login</Text>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            value={email}
-            onChangeText={setEmail}
-            style={styles.input}
-            placeholder="email@example.com"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoComplete="email"
-          />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            value={password}
-            onChangeText={setPassword}
-            style={styles.input}
-            placeholder="••••••••"
-            secureTextEntry
-            autoComplete="password"
-          />
-        </View>
-
-        <TouchableOpacity
-          style={[styles.button, loading && styles.buttonDisabled]}
-          disabled={loading}
-          onPress={handleLogin}
-          >
-          <Text style={styles.buttonText}>
-            {loading ? 'Logging in...' : 'Login'}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => router.navigate('../register')}
-          style={styles.link}
-          >
-          <Text style={styles.linkText}>Don’t have an account? Register</Text>
-        </TouchableOpacity>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+          placeholder="email@example.com"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoComplete="email"
+        />
       </View>
+
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+          placeholder="••••••••"
+          secureTextEntry
+          autoComplete="password"
+        />
+      </View>
+
+      <TouchableOpacity
+        style={[styles.button, loading && styles.buttonDisabled]}
+        disabled={loading}
+        onPress={handleLogin}
+      >
+        <Text style={styles.buttonText}>
+          {loading ? 'Logging in...' : 'Login'}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.navigate('../register')}
+        style={styles.link}
+      >
+        <Text style={styles.linkText}>Don’t have an account? Register</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -112,8 +118,8 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     backgroundColor: '#f8f9fa',
-    marginLeft: isMobile ? 15 : 250,
-    marginRight:isMobile ? 15 : 250,
+    marginLeft:15,
+    marginRight:15,
   },
   title: {
     fontSize: 28,
@@ -134,7 +140,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#000000ff',
+    borderColor: '#ddd',
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
@@ -162,13 +168,6 @@ const styles = StyleSheet.create({
     color: '#007bff',
     fontSize: 14,
   },
-  wrapper: {
-    padding:50,
-    borderStyle:"solid",
-    borderColor:"blue",
-    borderWidth:1,
-
-  }
 });
 
 export default LoginScreen;
