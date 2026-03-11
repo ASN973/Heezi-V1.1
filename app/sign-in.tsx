@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { initializeApp } from "firebase/app";
-import { auth, db } from '@/utils/firebase';
 import { useRouter } from 'expo-router';
 import { isMobile } from '@/utils/isMobile';
 import { SafeAreaView }  from "react-native-safe-area-context"
+import { useAuth } from '@/context/useAuth';
 import {
   View,
   Text,
@@ -12,52 +10,52 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Image,
 } from 'react-native';
 
-// Initialize Firebase
-// const app  = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
 
-// Sign in
-async function signIn(email: string, password: string) {
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    console.log('Logged in:', user.uid);
-  } catch (error: any) {
-    console.log('Login error:', error.code, error.message);
-  }
-}
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [localIsLoading, setlocalIsLoading] = useState(false);
+  const { signIn, user } = useAuth();
   const router = useRouter();
+  
+  //Check if user already loggedIn
+  useEffect(() => {
+    if (user) {
+      router.replace('/(tabs)/play/spreadsheet'); // or your protected route
+    }
+  }, [user]);
 
   const handleLogin = async () => {
     if (!email || !password) {
       Alert.alert('Error', 'Please fill in both email and password.');
+      alert('Error : Please fill in both email and password.');
       return;
     }
-
-    setLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      Alert.alert('Success', 'Logged in!');
-      // Navigate to your main app screen
-      router.replace('/(tabs)/play/')
-    } catch (error: any) {
-      console.log('Login error:', error);
+      setlocalIsLoading(true);
+      await signIn(email,password);
+    } 
+    catch (error: any) {
       Alert.alert('Login Failed', error.message || 'Check your email and password.');
-    } finally {
-      setLoading(false);
+      alert("Login Failed : " + error.message);
+    } 
+    finally{
+      setlocalIsLoading(false);
     }
-  };
+};
 
-  return (
-    <SafeAreaView style={styles.container}>
+return (
+  <View style={styles.body}>
+  <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
+      <Image 
+        source={require('../assets/images/logo.png')}  
+        style={styles.image}
+      />
       <Text style={styles.title}>Login</Text>
 
         <View style={styles.inputContainer}>
@@ -84,34 +82,39 @@ function LoginScreen() {
             autoComplete="password"
           />
         </View>
-
+        
         <TouchableOpacity
-          style={[styles.button, loading && styles.buttonDisabled]}
-          disabled={loading}
+          style={[styles.button, localIsLoading && styles.buttonDisabled]}
+          disabled={localIsLoading}
           onPress={handleLogin}
-          >
+        >
           <Text style={styles.buttonText}>
-            {loading ? 'Logging in...' : 'Login'}
+            {localIsLoading ? 'Logging in...' : 'Login'}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => router.navigate('../register')}
+          onPress={() => router.navigate('./register')}
           style={styles.link}
-          >
+        >
           <Text style={styles.linkText}>Don’t have an account? Register</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
-  );
+  </View>
+  
+);
 }
 
 const styles = StyleSheet.create({
+  body:{
+    backgroundColor: '#FDEFC8',
+    height:'100%'
+  },
   container: {
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#f8f9fa',
     marginLeft: isMobile ? 15 : 250,
     marginRight:isMobile ? 15 : 250,
   },
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 30,
-    color: '#333',
+    color: '#72D6BA',
   },
   inputContainer: {
     marginBottom: 16,
@@ -129,18 +132,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     marginBottom: 4,
-    color: '#555',
+    color: '#72D6BA',
   },
   input: {
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#000000ff',
+    borderColor: 'rgb(69 188 158)',
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
+    borderStyle:'solid',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgb(69 188 158)',
     paddingVertical: 14,
     borderRadius: 8,
     alignItems: 'center',
@@ -159,15 +163,21 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   linkText: {
-    color: '#007bff',
+    color: 'rgb(69 188 158)',
     fontSize: 14,
   },
   wrapper: {
     padding:50,
     borderStyle:"solid",
-    borderColor:"blue",
+    borderColor:"rgb(69 188 158)",
+    backgroundColor:"#1C5348",
+    borderRadius:8,
     borderWidth:1,
 
+  },
+  image: {
+    width: 200,
+    height:55,
   }
 });
 

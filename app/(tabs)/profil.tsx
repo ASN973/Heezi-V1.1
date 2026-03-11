@@ -71,7 +71,7 @@ export default function ProfilScreen() {
           </View>
         </View>
       </View>
-      <WatermarkAbsolute text="BIENTÔT DISPONIBLE" />
+      {/* <WatermarkAbsolute text="BIENTÔT DISPONIBLE" /> */}
     </ScrollableScreen>
   );
 }
