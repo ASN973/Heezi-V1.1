@@ -25,7 +25,11 @@ export function RightColumn() {
 }
 
 const styles = StyleSheet.create({
-  mobileHeader: { gap: 5, paddingBottom: 8 },
+  mobileHeader: { 
+    gap: 5,
+    marginTop: isMobile ? 30 : undefined,
+    paddingBottom: 8 
+  },
   logo: {
     height: 36,
     alignSelf: "center",

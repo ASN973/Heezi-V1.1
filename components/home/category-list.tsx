@@ -20,7 +20,7 @@ export function CategoryList() {
         <View key={index} style={isMobile ? styles.cardWrapper : undefined}>
           <PracticeToolCard
             toolName={toolName as PracticeTool}
-            style={isMobile ? styles.cardFill : undefined}
+            style={styles.cardFill}
           />
         </View>
       ))}
@@ -31,16 +31,19 @@ export function CategoryList() {
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#FFFFFF",
-    gap: 8,
     flexDirection: isMobile ? "row" : "column",
-    flex: 1,
-    justifyContent: isMobile ? "center" : "flex-start",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
+
   cardWrapper: {
-    flex: 1,
-    alignSelf: "stretch",
+    width: "45%",
+    margin: 6,
+    height: 100,
   },
+
   cardFill: {
     flex: 1,
+    marginTop : 12,
   },
 });

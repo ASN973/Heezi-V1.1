@@ -6,12 +6,10 @@ import { Dimensions, Image, StyleSheet, View } from "react-native";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AuthWrapper from '@/components/authWrapper'
 
-
 export default function TabLayout() {
   const colorScheme = useColorScheme  ();
   const screenWidth = Dimensions.get("window").width;
   const isMobile = screenWidth < 768; // Use bottom tab bar on screens smaller than 768px
- 
   return (
     <AuthWrapper>
       <Tabs
@@ -21,7 +19,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarButton: HapticTab,
           tabBarPosition: isMobile ? "bottom" : "left",
-          tabBarStyle: styles.tabBarStyle,
+          tabBarStyle: isMobile ? styles.tabBarStyleMobile : styles.tabBarStyle,
           tabBarItemStyle: isMobile
             ? styles.tabBarItemStyleMobile
             : styles.tabBarItemStyle,
@@ -116,13 +114,7 @@ export default function TabLayout() {
               />
             ),
           }}
-        />
-        <Tabs.Screen
-          name="index"
-          options={{
-            tabBarButton: () => null,
-          }}
-        />
+        />        
         <Tabs.Screen
           name="logout"
           options={{
@@ -130,10 +122,16 @@ export default function TabLayout() {
             tabBarIcon: () => (
               <MaterialIcons 
               name="logout"
-              size={24}
+              size={30}
               color="black"
               />
             ),
+          }}
+        />
+        <Tabs.Screen
+          name="index"
+          options={{
+            tabBarItemStyle: { display: 'none' },
           }}
         />
       </Tabs>
@@ -147,7 +145,7 @@ const styles = StyleSheet.create({
     elevation: 0,
     shadowOpacity: 0,
     paddingTop: 93,
-    paddingRight: 8,
+    paddingRight: 16,
     alignItems: "center",
     minWidth: 164,
     maxWidth: 164,
@@ -186,20 +184,21 @@ const styles = StyleSheet.create({
     height: 42,
   },
   // Mobile (bottom tab bar) styles
-  // tabBarStyleMobile: {
-  //   backgroundColor: "white",
-  //   elevation: 0,
-  //   shadowOpacity: 0,
-  //   height: 60,
-  //   paddingBottom: 8,
-  //   paddingTop: 8,
-  //   borderTopWidth: 1,
-  //   borderTopColor: "#E0E0E0",
-  // },
+  tabBarStyleMobile: {
+    
+    backgroundColor: "white",
+    elevation: 20,
+    shadowOpacity: 0,
+    height: 85,
+    paddingBottom: 8,
+    paddingTop: 7,
+    borderTopWidth: 1,
+    borderTopColor: "#E0E0E0",
+  },
   tabBarItemStyleMobile: {
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-around",
     paddingVertical: 4,
   },
   tabBarIconStyleMobile: {

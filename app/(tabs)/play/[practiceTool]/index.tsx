@@ -39,8 +39,8 @@ export default function SectionsList() {
 }
 const styles = StyleSheet.create({
   mainContent: {
-    gap: 32,
-    marginBottom: 32,
+    margin: 32,
+    backgroundColor: "#FFFFF000",
   },
   mobileContainer: {
     flex: 1,
