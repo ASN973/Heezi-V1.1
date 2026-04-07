@@ -9,8 +9,7 @@ export default function LogoutScreen() {
         const auth = useAuth();
         try {
             await auth.signOut();
-            console.log('Logout...')
-            console.log('Redirect to signIN...')
+            console.log('User signed out successfully');
             router.replace('/sign-in');
     
         }
@@ -26,7 +25,7 @@ export default function LogoutScreen() {
     )
     
 }
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   body:{
     backgroundColor: '#FDEFC8',
     height:'100%'

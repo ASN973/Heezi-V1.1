@@ -7,8 +7,7 @@ export default function AuthWrapper({children}: { children: JSX.Element }) {
   const router = useRouter()
   const { user, isLoading } = useAuth();
   const [ready, setReady] = useState(false);
-  console.log(ready);
-  console.log(user, isLoading);
+  
   useEffect(() => {
     if (!isLoading) {
       if (!user) {
