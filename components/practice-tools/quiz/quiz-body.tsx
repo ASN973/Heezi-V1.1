@@ -33,7 +33,7 @@ function AnswersBox({
 }) {
   return (
     <View style={styles.answersContainer}>
-      {answers.map((answer, index) => (
+      {answers.map((answer, index) => ( //crée les boutons à partir de l'array de réponses de la question actuelle
         <AnswerButton
           key={index}
           answer={answer}

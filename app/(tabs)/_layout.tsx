@@ -5,136 +5,140 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AuthWrapper from '@/components/authWrapper'
+import DiagnosticGuard from "@/components/DiagnosticGuard";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme  ();
   const screenWidth = Dimensions.get("window").width;
   const isMobile = screenWidth < 768; // Use bottom tab bar on screens smaller than 768px
+
   return (
     <AuthWrapper>
-      <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-          tabBarActiveBackgroundColor: !isMobile ? "#EFEFEF" : "lightgray", // Background color for selected tab
-          headerShown: false,
-          tabBarButton: HapticTab,
-          tabBarPosition: isMobile ? "bottom" : "left",
-          tabBarStyle: isMobile ? styles.tabBarStyleMobile : styles.tabBarStyle,
-          tabBarItemStyle: isMobile
+      <DiagnosticGuard>
+        <Tabs
+          screenOptions={{
+            tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+            tabBarActiveBackgroundColor: !isMobile ? "#EFEFEF" : "lightgray", // Background color for selected tab
+            headerShown: false,
+            tabBarButton: HapticTab,
+            tabBarPosition: isMobile ? "bottom" : "left",
+            tabBarStyle: isMobile ? styles.tabBarStyleMobile : styles.tabBarStyle,
+            tabBarItemStyle: isMobile
             ? styles.tabBarItemStyleMobile
             : styles.tabBarItemStyle,
-          tabBarIconStyle: isMobile
+            tabBarIconStyle: isMobile
             ? styles.tabBarIconStyleMobile
             : styles.tabBarIconStyle,
-          tabBarLabelStyle: isMobile
+            tabBarLabelStyle: isMobile
             ? styles.tabBarLabelStyleMobile
             : styles.tabBarLabelStyle,
 
-          tabBarBackground: () => {
-            return isMobile ? null : (
-              <View style={styles.tabBarBackgroundStyle}>
+            tabBarBackground: () => {
+              return isMobile ? null : (
+                <View style={styles.tabBarBackgroundStyle}>
+                  <Image
+                    source={require("../../assets/images/logo.png")}
+                    resizeMode="contain"
+                    style={styles.logoStyle}
+                    />
+                </View>
+              );
+            },
+          }}
+          >
+          <Tabs.Screen
+            name="play"
+            options={{
+              title: "Jouer",
+              tabBarIcon: () => (
                 <Image
-                  source={require("../../assets/images/logo.png")}
-                  resizeMode="contain"
-                  style={styles.logoStyle}
-                />
-              </View>
-            );
-          },
-        }}
-      >
-        <Tabs.Screen
-          name="play"
-          options={{
-            title: "Jouer",
-            tabBarIcon: () => (
-              <Image
                 source={
-                  !isMobile
+                    !isMobile
                     ? require("../../assets/images/play.png")
                     : require("../../assets/images/mascot-head.png")
-                }
-                resizeMode="contain"
-                style={
-                  isMobile
-                    ? styles.tabBarItemIconImageMobile
-                    : styles.tabBarItemIconImage
-                }
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="profil"
-          options={{
-            title: "Profil",
-            tabBarIcon: () => (
-              <Image
+                  }
+                  resizeMode="contain"
+                  style={
+                    isMobile
+                      ? styles.tabBarItemIconImageMobile
+                      : styles.tabBarItemIconImage
+                    }
+                    />
+                  ),
+                }}
+          />
+          <Tabs.Screen
+            name="profil"
+            options={{
+              title: "Profil",
+              tabBarIcon: () => (
+                <Image
                 source={require("../../assets/images/profil.png")}
                 resizeMode="contain"
                 style={
-                  isMobile
+                    isMobile
+                    ? styles.tabBarItemIconImageMobile
+                      : styles.tabBarItemIconImage
+                    }
+                    />
+                  ),
+                }}
+          />
+          <Tabs.Screen
+            name="score"
+            options={{
+              title: "Score",
+              tabBarIcon: () => (
+                <Image
+                  source={require("../../assets/images/score.png")}
+                  resizeMode="contain"
+                  style={
+                    isMobile
                     ? styles.tabBarItemIconImageMobile
                     : styles.tabBarItemIconImage
-                }
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="score"
-          options={{
-            title: "Score",
-            tabBarIcon: () => (
-              <Image
-                source={require("../../assets/images/score.png")}
-                resizeMode="contain"
-                style={
-                  isMobile
-                    ? styles.tabBarItemIconImageMobile
-                    : styles.tabBarItemIconImage
-                }
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="succes"
-          options={{
-            title: "Succès",
-            tabBarIcon: () => (
-              <Image
+                  }
+                />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="succes"
+            options={{
+              title: "Succès",
+              tabBarIcon: () => (
+                <Image
                 source={require("../../assets/images/succes.png")}
-                resizeMode="contain"
-                style={
-                  isMobile
-                    ? styles.tabBarItemIconImageMobile
-                    : styles.tabBarItemIconImage
-                }
-              />
-            ),
-          }}
-        />        
-        <Tabs.Screen
-          name="logout"
-          options={{
-            title: "Déconnexion",
-            tabBarIcon: () => (
-              <MaterialIcons 
-              name="logout"
-              size={30}
-              color="black"
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="index"
-          options={{
-            tabBarItemStyle: { display: 'none' },
-          }}
-        />
-      </Tabs>
+                  resizeMode="contain"
+                  style={
+                    isMobile
+                      ? styles.tabBarItemIconImageMobile
+                      : styles.tabBarItemIconImage
+                  }
+                  />
+              ),
+            }}
+          />        
+          <Tabs.Screen
+            name="logout"
+            options={{
+              title: "Déconnexion",
+              tabBarIcon: () => (
+                <MaterialIcons 
+                name="logout"
+                size={30}
+                color="black"
+                />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="index"
+            options={{
+              tabBarItemStyle: { display: 'none' },
+            }}
+          />
+        </Tabs>
+      </DiagnosticGuard>
     </AuthWrapper>
   );
 }

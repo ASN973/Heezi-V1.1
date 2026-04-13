@@ -1,4 +1,3 @@
-import AuthWrapper from "@/components/authWrapper";
 import { Stack } from "expo-router";
 
 export default function PlayLayout() {

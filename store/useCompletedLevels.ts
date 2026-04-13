@@ -6,10 +6,11 @@ type CreateJSONStorageFn =
   typeof import("zustand/middleware").createJSONStorage;
 
 const { persist, createJSONStorage } = require("zustand/middleware") as {
-  persist: PersistFn;
+  persist: PersistFn; 
+  // Fonction qui va enregistrer des données sur l'appareil de l'utilisateur
   createJSONStorage: CreateJSONStorageFn;
 };
-
+// store : permet d'avoir des variables globales sur tt toute l'application
 type PracticeTool = "spreadsheet" | "textEditor";
 
 interface CompletedLevelsState {
@@ -50,13 +51,16 @@ const useCompletedLevelsStore = create<CompletedLevelsState>()(
             },
           };
           return {
+            // Prendre le pourcentage de spreadSheetProgress 
             levelsCompleted: updatedLevelsCompleted,
             spreadSheetProgress: getPercentage(
               updatedLevelsCompleted.spreadsheet
             ),
+            // Prendre le pourcentage de textEditorProgress
             textEditorProgress: getPercentage(
               updatedLevelsCompleted.textEditor
             ),
+            // Prendre le pourcentage du progès total
             totalProgress:
               (getPercentage(updatedLevelsCompleted.spreadsheet) +
                 getPercentage(updatedLevelsCompleted.textEditor)) /
@@ -67,6 +71,7 @@ const useCompletedLevelsStore = create<CompletedLevelsState>()(
     }),
     {
       name: "completed-levels",
+      // Ce que je dois changer
       storage: createJSONStorage(() => AsyncStorage),
       merge: (persistedState: any, currentState: CompletedLevelsState) => {
         const merged = {
