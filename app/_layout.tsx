@@ -41,11 +41,8 @@ export default function RootLayout() {
             name="register"
             options={{ headerShown: false }}
             />
-          <Stack.Screen
-            name="diagnosticQuiz"
-            options={{ headerShown: false }}
-            />
         </Stack>
+
         <StatusBar style="auto" />
       </ThemeProvider>
     </SessionProvider>
