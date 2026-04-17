@@ -9,4 +9,7 @@ export const levelFiles: Record<string, any> = {
     2: require("@/assets/levels/textEditor/lvl2.json"),
     3: require("@/assets/levels/textEditor/lvl3.json"),
   },
+  diagnostic:{
+    1: require("@/assets/levels/diagnostic.json")
+  }
 };

@@ -1,0 +1,100 @@
+{
+  "tasks": [
+    {
+      "steps": [
+        {
+          "question": "Est-ce que tu utilises un téléphone chaque jour ?",
+          "topic": "usage",
+          "recommendedLevel": 0,
+          "answers": [
+            { "text": "Oui, tous les jours", "isCorrect": true },
+            { "text": "Oui, parfois", "isCorrect": true },
+            { "text": "Non / très rarement" }
+          ]
+        },
+        {
+          "question": "Pour quelle raison veux-tu apprendre le numérique ?",
+          "topic": "goal",
+          "recommendedLevel": 0,
+          "answers": [
+            { "text": "🏠 Pour ma vie quotidienne", "isCorrect": true },
+            { "text": "💼 Pour trouver ou garder un emploi", "isCorrect": true },
+            { "text": "📄 Pour mes papiers et démarches", "isCorrect": true },
+            { "text": "🎓 Pour aider mes enfants ou ma famille", "isCorrect": true }
+          ]
+        },
+        {
+          "question": "Parmi ces appareils, lequel est un ordinateur ?",
+          "topic": "hardware",
+          "recommendedLevel": 1,
+          "answers": [
+            { "text": "💻 Un ordinateur portable", "isCorrect": true },
+            { "text": "📺 Une télévision" },
+            { "text": "🚗 Une voiture" },
+            { "text": "📷 Un appareil photo" }
+          ]
+        },
+        {
+          "question": "Glisser-déposer, c'est quoi ?",
+          "topic": "navigation",
+          "recommendedLevel": 1,
+          "answers": [
+            { "text": "Déplacer un élément sur l'écran avec le doigt ou la souris", "isCorrect": true },
+            { "text": "Éteindre l'écran" },
+            { "text": "Taper du texte sur le clavier" }
+          ]
+        },
+        {
+          "question": "Sur un téléphone, à quoi sert le bouton qui ressemble à une maison 🏠 ?",
+          "topic": "navigation",
+          "recommendedLevel": 1,
+          "answers": [
+            { "text": "Revenir à l'écran d'accueil", "isCorrect": true },
+            { "text": "Éteindre le téléphone" },
+            { "text": "Ouvrir la caméra" }
+          ]
+        },
+        {
+          "question": "Sur un clavier, où se trouve la barre d'espace ?",
+          "topic": "keyboard",
+          "recommendedLevel": 2,
+          "answers": [
+            { "text": "La grande touche en bas au centre", "isCorrect": true },
+            { "text": "La touche en haut à gauche" },
+            { "text": "La touche Enter" }
+          ]
+        },
+        {
+          "question": "Parmi ces logos, lequel ouvre Internet sur un téléphone ?",
+          "topic": "apps",
+          "recommendedLevel": 2,
+          "answers": [
+            { "text": "🌐 Chrome ou Safari", "isCorrect": true },
+            { "text": "💬 WhatsApp" },
+            { "text": "🧮 La calculatrice" }
+          ]
+        },
+        {
+          "question": "Tu reçois un message qui te demande ton mot de passe. Tu fais quoi ?",
+          "topic": "security",
+          "recommendedLevel": 3,
+          "answers": [
+            { "text": "Je l'ignore ou j'appelle quelqu'un de confiance", "isCorrect": true },
+            { "text": "Je donne mon mot de passe" },
+            { "text": "Je réponds que je ne sais pas" }
+          ]
+        },
+        {
+          "question": "Tu ouvres un document Word. Où se trouve le titre en général ?",
+          "topic": "office",
+          "recommendedLevel": 4,
+          "answers": [
+            { "text": "En haut du document, en grand", "isCorrect": true },
+            { "text": "En bas de la page" },
+            { "text": "Dans le menu Fichier" }
+          ]
+        }
+      ]
+    }
+  ]
+}
