@@ -30,7 +30,7 @@ export default function DiagnosticGuard({children}: {children: JSX.Element}) {
       // Parse data to find the diagnostic result 
         // Redirect to the diagnostic if not found else return the children
       if (!data?.diagnosticResult) {
-        router.replace("/diagnosticQuiz");
+        router.replace("/mission/diagnostic/1/diagnosticQuiz");
       }
     }
 

@@ -25,4 +25,17 @@ export default {
     sectionDescription: "Apprendre les bases de l'éditeur de texte",
     sectionDescriptionMobile: "Les bases de l'éditeur de texte",
   },
+  diagnostic: {
+    name: "Éditeur de texte",
+    color: "#fff200",
+    secondaryColor: "#E6F9FF",
+    title: "L'éditeur de texte",
+    description: "Comment utiliser un éditeur de texte",
+    tool: "textEditor",
+    textColor: "#0A4F70",
+    backgroundColor: "#33C6FD",
+    icon: require("@/assets/images/textEditor.png"),
+    sectionDescription: "Apprendre les bases de l'éditeur de texte",
+    sectionDescriptionMobile: "Les bases de l'éditeur de texte",
+  },
 };
