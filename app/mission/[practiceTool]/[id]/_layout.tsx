@@ -13,6 +13,8 @@ export default function PlayLayout() {
       <Stack.Screen name="result" options={{ headerShown: false }} />
       <Stack.Screen name="export" options={{ headerShown: false }} />
       <Stack.Screen name="quiz" options={{ headerShown: false }} />
+      <Stack.Screen name="diagnosticQuiz" options={{ headerShown: false }} />
+      <Stack.Screen name="diagnosticResult" options={{ headerShown: false }} />
     </Stack>
   );
 }

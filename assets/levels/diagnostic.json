@@ -27,6 +27,7 @@
           "question": "Parmi ces appareils, lequel est un ordinateur ?",
           "topic": "hardware",
           "recommendedLevel": 1,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "💻 Un ordinateur portable", "isCorrect": true },
             { "text": "📺 Une télévision" },
@@ -38,6 +39,7 @@
           "question": "Glisser-déposer, c'est quoi ?",
           "topic": "navigation",
           "recommendedLevel": 1,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "Déplacer un élément sur l'écran avec le doigt ou la souris", "isCorrect": true },
             { "text": "Éteindre l'écran" },
@@ -48,6 +50,7 @@
           "question": "Sur un téléphone, à quoi sert le bouton qui ressemble à une maison 🏠 ?",
           "topic": "navigation",
           "recommendedLevel": 1,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "Revenir à l'écran d'accueil", "isCorrect": true },
             { "text": "Éteindre le téléphone" },
@@ -58,6 +61,7 @@
           "question": "Sur un clavier, où se trouve la barre d'espace ?",
           "topic": "keyboard",
           "recommendedLevel": 2,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "La grande touche en bas au centre", "isCorrect": true },
             { "text": "La touche en haut à gauche" },
@@ -68,6 +72,7 @@
           "question": "Parmi ces logos, lequel ouvre Internet sur un téléphone ?",
           "topic": "apps",
           "recommendedLevel": 2,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "🌐 Chrome ou Safari", "isCorrect": true },
             { "text": "💬 WhatsApp" },
@@ -78,6 +83,7 @@
           "question": "Tu reçois un message qui te demande ton mot de passe. Tu fais quoi ?",
           "topic": "security",
           "recommendedLevel": 3,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "Je l'ignore ou j'appelle quelqu'un de confiance", "isCorrect": true },
             { "text": "Je donne mon mot de passe" },
@@ -88,6 +94,7 @@
           "question": "Tu ouvres un document Word. Où se trouve le titre en général ?",
           "topic": "office",
           "recommendedLevel": 4,
+          "isThereAGoodAnswer": true,
           "answers": [
             { "text": "En haut du document, en grand", "isCorrect": true },
             { "text": "En bas de la page" },
