@@ -18,20 +18,14 @@ export default function DiagnosticGuard({children}: {children: JSX.Element}) {
 
     async function check() {
       // Asks the db if the user exists 
-      const snap = await getDoc(doc(db, "users", user.uid));
-
-      if (!snap.exists()) return;
+      const snap = await getDoc(doc(db, "users", user.uid,"diagnosticResult","data"));
       
-      // Gets all the data
-      const data = snap.data();
-
-      console.log("snap exists:", snap.exists());
-      
-      // Parse data to find the diagnostic result 
-        // Redirect to the diagnostic if not found else return the children
-      if (!data?.diagnosticResult) {
+      // Check if the subcollection exists 
+      // Redirect to the diagnostic if not found else return the children
+      if (!snap.exists()) {
         router.replace("/mission/diagnostic/1/diagnosticQuiz");
       }
+      
     }
 
     check();
