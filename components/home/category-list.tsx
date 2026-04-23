@@ -1,5 +1,5 @@
 import { PracticeToolCard } from "@/components/home/practice-tool-card";
-import practiceToolsConstants from "@/constants/practiceToolsConstants";
+import practiceToolsRightPanel from "@/constants/practiceToolRightPanel";
 import { PracticeTool } from "@/context/usePracticeTool";
 import { isMobile } from "@/utils/isMobile";
 import { StyleSheet, View } from "react-native";
@@ -12,7 +12,7 @@ export interface CategoryItem {
 }
 
 export function CategoryList() {
-  const toolNames = Object.keys(practiceToolsConstants);
+  const toolNames = Object.keys(practiceToolsRightPanel);
 
   return (
     <View style={styles.mainContainer}>

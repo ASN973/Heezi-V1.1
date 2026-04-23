@@ -7,6 +7,7 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AnswerButton } from "./answer-button";
 import TopBar from "./top-bar";

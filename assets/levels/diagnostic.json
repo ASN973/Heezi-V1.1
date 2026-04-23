@@ -5,100 +5,102 @@
         {
           "question": "Est-ce que tu utilises un téléphone chaque jour ?",
           "topic": "usage",
+          "type": "graded",
           "recommendedLevel": 0,
           "answers": [
-            { "text": "Oui, tous les jours", "isCorrect": true },
-            { "text": "Oui, parfois", "isCorrect": true },
-            { "text": "Non / très rarement" }
+            { "text": "Oui, tous les jours", "isCorrect":true, "points": 2 },
+            { "text": "Oui, parfois", "isCorrect":true, "points": 1 },
+            { "text": "Non / très rarement", "isCorrect":true, "points": 0 }
           ]
         },
         {
           "question": "Pour quelle raison veux-tu apprendre le numérique ?",
           "topic": "goal",
+          "type": "profile",
           "recommendedLevel": 0,
           "answers": [
-            { "text": "🏠 Pour ma vie quotidienne", "isCorrect": true },
-            { "text": "💼 Pour trouver ou garder un emploi", "isCorrect": true },
-            { "text": "📄 Pour mes papiers et démarches", "isCorrect": true },
-            { "text": "🎓 Pour aider mes enfants ou ma famille", "isCorrect": true }
+            { "text": "🏠 Pour ma vie quotidienne", "points": 1 },
+            { "text": "💼 Pour trouver ou garder un emploi", "points": 1 },
+            { "text": "📄 Pour mes papiers et démarches", "points": 1 },
+            { "text": "🎓 Pour aider mes enfants ou ma famille", "points": 1 }
           ]
         },
         {
           "question": "Parmi ces appareils, lequel est un ordinateur ?",
           "topic": "hardware",
+          "type": "graded",
           "recommendedLevel": 1,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "💻 Un ordinateur portable", "isCorrect": true },
-            { "text": "📺 Une télévision" },
-            { "text": "🚗 Une voiture" },
-            { "text": "📷 Un appareil photo" }
+            { "text": "💻", "isCorrect":true, "points": 1 },
+            { "text": "📺", "points": 0 },
+            { "text": "🚗", "points": 0 },
+            { "text": "📷", "points": 0 }
           ]
         },
         {
           "question": "Glisser-déposer, c'est quoi ?",
           "topic": "navigation",
+          "type": "graded",
           "recommendedLevel": 1,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "Déplacer un élément sur l'écran avec le doigt ou la souris", "isCorrect": true },
-            { "text": "Éteindre l'écran" },
-            { "text": "Taper du texte sur le clavier" }
+            { "text": "Déplacer un élément sur l'écran avec le doigt ou la souris", "isCorrect": true, "points": 1 },
+            { "text": "Éteindre l'écran", "points": 0 },
+            { "text": "Taper du texte sur le clavier", "points": 0 }
           ]
         },
         {
           "question": "Sur un téléphone, à quoi sert le bouton qui ressemble à une maison 🏠 ?",
           "topic": "navigation",
+          "type": "graded",
           "recommendedLevel": 1,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "Revenir à l'écran d'accueil", "isCorrect": true },
-            { "text": "Éteindre le téléphone" },
-            { "text": "Ouvrir la caméra" }
+            { "text": "Revenir à l'écran d'accueil", "isCorrect": true, "points": 1 },
+            { "text": "Éteindre le téléphone", "points": 0 },
+            { "text": "Ouvrir la caméra", "points": 0 }
           ]
         },
         {
           "question": "Sur un clavier, où se trouve la barre d'espace ?",
           "topic": "keyboard",
+          "type": "graded",
           "recommendedLevel": 2,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "La grande touche en bas au centre", "isCorrect": true },
-            { "text": "La touche en haut à gauche" },
-            { "text": "La touche Enter" }
+            { "text": "La grande touche en bas au centre", "isCorrect": true, "points": 1 },
+            { "text": "La touche en haut à gauche", "points": 0 },
+            { "text": "La touche Enter", "points": 0 }
           ]
         },
         {
           "question": "Parmi ces logos, lequel ouvre Internet sur un téléphone ?",
           "topic": "apps",
+          "type": "graded",
           "recommendedLevel": 2,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "🌐 Chrome ou Safari", "isCorrect": true },
-            { "text": "💬 WhatsApp" },
-            { "text": "🧮 La calculatrice" }
+            { "text": "🌐 Chrome ou Safari", "isCorrect": true, "points": 1 },
+            { "text": "💬 WhatsApp", "points": 0 },
+            { "text": "🧮 La calculatrice", "points": 0 }
           ]
         },
         {
           "question": "Tu reçois un message qui te demande ton mot de passe. Tu fais quoi ?",
           "topic": "security",
+          "type": "graded",
           "recommendedLevel": 3,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "Je l'ignore ou j'appelle quelqu'un de confiance", "isCorrect": true },
-            { "text": "Je donne mon mot de passe" },
-            { "text": "Je réponds que je ne sais pas" }
+            { "text": "Je l'ignore ou j'appelle quelqu'un de confiance", "isCorrect": true, "points": 1 },
+            { "text": "Je donne mon mot de passe", "points": 0 },
+            { "text": "Je réponds que je ne sais pas", "points": 0 }
           ]
         },
         {
           "question": "Tu ouvres un document Word. Où se trouve le titre en général ?",
           "topic": "office",
+          "type": "graded",
           "recommendedLevel": 4,
-          "isThereAGoodAnswer": true,
           "answers": [
-            { "text": "En haut du document, en grand", "isCorrect": true },
-            { "text": "En bas de la page" },
-            { "text": "Dans le menu Fichier" }
+            { "text": "En haut du document, en grand", "isCorrect": true, "points": 1 },
+            { "text": "En bas de la page", "points": 0 },
+            { "text": "Dans le menu Fichier", "points": 0 }
           ]
         }
       ]

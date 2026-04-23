@@ -16,19 +16,19 @@ export default function DiagnosticGuard({children}: {children: JSX.Element}) {
       return;
     };
 
-    async function check() {
+    async function checkDiagnostic() {
       // Asks the db if the user exists 
-      const snap = await getDoc(doc(db, "users", user.uid,"diagnosticResult","data"));
+      const snap = await getDoc(doc(db, "users", user.uid,"diagnosticResult","result"));
       
       // Check if the subcollection exists 
       // Redirect to the diagnostic if not found else return the children
       if (!snap.exists()) {
-        router.replace("/mission/diagnostic/1/diagnosticQuiz");
+        router.replace("/mission/diagnostic/1/diagnostic-quiz");
       }
       
     }
 
-    check();
+    checkDiagnostic();
   }, [user]);
 
   return children;
