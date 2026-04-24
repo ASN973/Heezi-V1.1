@@ -41,6 +41,13 @@ export default function RootLayout() {
             name="register"
             options={{ headerShown: false }}
             />
+          <Stack.Screen
+            name="forgotPassword"
+            options={{ 
+              headerShown: false,
+              title: "Mot de passe oublié"
+            }}
+            />
         </Stack>
 
         <StatusBar style="auto" />

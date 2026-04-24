@@ -23,7 +23,7 @@ export default function DiagnosticGuard({children}: {children: JSX.Element}) {
       // Check if the subcollection exists 
       // Redirect to the diagnostic if not found else return the children
       if (!snap.exists()) {
-        router.replace("/mission/diagnostic/1/diagnostic-quiz");
+        router.replace("/mission/diagnostic/1/diagnosticQuiz");
       }
       
     }
