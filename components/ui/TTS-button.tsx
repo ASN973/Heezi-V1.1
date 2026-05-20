@@ -22,7 +22,6 @@ export default function TTSButton( { question, answer }: TTSButtonProps) {
 
         Speech.speak(question, { 
             language: 'fr-FR', 
-            // voice: 'urn:moz-tts:speechd:French%20(France)+female3?fr-FR', 
             rate: 0.95,
             pitch: 1.0,
         });
@@ -30,7 +29,6 @@ export default function TTSButton( { question, answer }: TTSButtonProps) {
         for (let i = 0; i < answer.length ; i++){
             Speech.speak(answer[i].text, { 
             language: 'fr-FR', 
-            // voice: 'urn:moz-tts:speechd:French%20(France)+female3?fr-FR', 
             rate: 0.95,
         });
         }

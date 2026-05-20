@@ -96,6 +96,7 @@ export default function QuizBody({
             isVerified={isVerified}
           />
         </View>
+        <TTSButton question={currentStep.question} answer={currentStep.answers} />
         <VerifyButton
           verifyAnswer={verifyAnswer}
           nextStep={nextStep}
@@ -104,7 +105,6 @@ export default function QuizBody({
           selectedAnswerIndex={selectedAnswerIndex}
           answers={answers}
         />
-        <TTSButton question={currentStep.question} answer={currentStep.answers} />
       </ScrollView>
     </SafeAreaView>
   );
