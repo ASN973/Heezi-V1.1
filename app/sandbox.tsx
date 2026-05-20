@@ -1,5 +1,9 @@
-import TextEditorScreen from "@/components/practice-tools/text-editor/textEditorScreen";
-import QuizBody from "@/components/practice-tools/quiz/quiz-body";
+import TTSButton from "@/components/ui/TTS-button";
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 export default function Sandbox() {
-  return <QuizBody />;
+  return (
+  <View>
+    <TTSButton text="Nigga"/>
+  </View>
+);
 }

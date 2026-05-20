@@ -12,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { AnswerButton } from "./answer-button";
 import TopBar from "./top-bar";
 import { VerifyButton } from "./verify-button";
+import TTSButton from "@/components/ui/TTS-button";
 
 const QuestionBox = ({ question }: { question: string }) => {
   return (
@@ -103,6 +104,7 @@ export default function QuizBody({
           selectedAnswerIndex={selectedAnswerIndex}
           answers={answers}
         />
+        <TTSButton question={currentStep.question} answer={currentStep.answers} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -112,6 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#FFFFFF",
+    width:"100%"
   },
   mainContent: {
     flex: 1,
