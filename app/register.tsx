@@ -27,6 +27,9 @@ async function saveUserProfile(userInfo: object) {
       email: user.email,
       firstName: userInfo.firstName,
       lastName: userInfo.lastName,
+      experience: 0,
+      level:0,
+      diagnosticResult: '',
       updatedAt: new Date(),
       }
     );

@@ -7,10 +7,12 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AnswerButton } from "./answer-button";
 import TopBar from "./top-bar";
 import { VerifyButton } from "./verify-button";
+import TTSButton from "@/components/ui/TTS-button";
 
 const QuestionBox = ({ question }: { question: string }) => {
   return (
@@ -33,7 +35,7 @@ function AnswersBox({
 }) {
   return (
     <View style={styles.answersContainer}>
-      {answers.map((answer, index) => (
+      {answers.map((answer, index) => ( //crée les boutons à partir de l'array de réponses de la question actuelle
         <AnswerButton
           key={index}
           answer={answer}
@@ -94,6 +96,7 @@ export default function QuizBody({
             isVerified={isVerified}
           />
         </View>
+        <TTSButton question={currentStep.question} answer={currentStep.answers} />
         <VerifyButton
           verifyAnswer={verifyAnswer}
           nextStep={nextStep}
@@ -111,6 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#FFFFFF",
+    width:"100%"
   },
   mainContent: {
     flex: 1,

@@ -25,7 +25,7 @@ function LoginScreen() {
   //Check if user already loggedIn
   useEffect(() => {
     if (user) {
-      router.replace('/(tabs)/play/spreadsheet'); // or your protected route
+      router.replace('/play/spreadsheet/'); // or your protected route
     }
   }, [user]);
 
@@ -80,9 +80,14 @@ return (
             placeholder="••••••••"
             secureTextEntry
             autoComplete="password"
+            onSubmitEditing={handleLogin}
+            returnKeyType="send" 
           />
         </View>
-        
+
+        <TouchableOpacity onPress={() => router.push("/forgotPassword")}>
+            <Text style={styles.linkText} >Mot de passe oublié ?</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, localIsLoading && styles.buttonDisabled]}
           disabled={localIsLoading}
@@ -92,7 +97,6 @@ return (
             {localIsLoading ? 'Logging in...' : 'Login'}
           </Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           onPress={() => router.navigate('./register')}
           style={styles.link}
