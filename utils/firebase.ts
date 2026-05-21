@@ -1,8 +1,12 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-// import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
-// import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import { 
+  initializeAuth,
+  getAuth,
+  getReactNativePersistence,
+} from 'firebase/auth';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Your Firebase config
 const firebaseConfig = {
@@ -20,6 +24,18 @@ const app = getApps().length === 0
   ? initializeApp(firebaseConfig)
   : getApp();
 
+let auth;
+
+try {
+  //Cookies on phone
+  auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(AsyncStorage),
+  });
+} catch {
+  //Simple auth
+  auth = getAuth(app);
+}
+
 // Export services
-export const auth = getAuth(app);
+export { auth };
 export const db = getFirestore(app);

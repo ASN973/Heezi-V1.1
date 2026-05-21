@@ -1,7 +1,7 @@
 import * as Speech from 'expo-speech';
 import { View, StyleSheet, TouchableOpacity} from 'react-native'
 import Entypo from '@expo/vector-icons/Entypo';
-
+import { isMobile } from '@/utils/isMobile';
 type Answer = {
     text: string;
 };
@@ -35,9 +35,9 @@ export default function TTSButton( { question, answer }: TTSButtonProps) {
           
     };
     return(
-        <View style={css.container}>
+        <View style={isMobile ? css.container : css.containerPhone }>
             <TouchableOpacity style={css.icon} onPress={handleSpeak}>
-                <Entypo name="sound" size={24} color="#fdefc8" />
+                <Entypo name="sound" size={36} color="#fdefc8" />
             </TouchableOpacity>
         </View>
     )
@@ -47,13 +47,21 @@ const css = StyleSheet.create({
     container: {
         backgroundColor: "#1c5348",
         borderRadius: 50,
-        height: 70,
-        width: 70,
-        top:750,
+        height: 80,
+        width: 80,
+        top:680,
         right:'2%',
         position: "absolute"
     },
-
+    containerPhone: {
+        backgroundColor: "#1c5348",
+        borderRadius: 50,
+        height: 60,
+        width: 60,
+        top:750,
+        right:'3%',
+        position: "absolute"
+    },
     icon: {
         justifyContent: "center",
         alignItems: "center",
