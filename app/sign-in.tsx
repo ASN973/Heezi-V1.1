@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { isMobile } from '@/utils/isMobile';
 import { SafeAreaView }  from "react-native-safe-area-context"
 import { useAuth } from '@/context/useAuth';
+import { Platform } from 'react-native';
 import {
   View,
   Text,
@@ -14,7 +15,6 @@ import {
 } from 'react-native';
 
 
-
 function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +24,7 @@ function LoginScreen() {
   
   //Check if user already loggedIn
   useEffect(() => {
+    if (Platform.OS === 'web') document.title = "Heezi V1.2";
     if (user) {
       router.replace('/play/spreadsheet/'); // or your protected route
     }

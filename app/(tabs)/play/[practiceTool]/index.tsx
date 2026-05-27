@@ -3,7 +3,9 @@ import CourseCard from "@/components/home/course-card";
 import SectionCard from "@/components/home/section-card/SectionCard";
 import usePracticeToolConstants from "@/hooks/usePracticeToolConstants";
 import { isMobile } from "@/utils/isMobile";
-import { StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
+
+
 
 function ResponsiveWrapper({ children }: { children: React.ReactNode }) {
   return isMobile ? (
@@ -15,7 +17,6 @@ function ResponsiveWrapper({ children }: { children: React.ReactNode }) {
 
 export default function SectionsList() {
   const { practiceTool } = usePracticeToolConstants();
-
   return (
     <ResponsiveWrapper>
       {!isMobile && <CourseCard />}

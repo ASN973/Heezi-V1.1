@@ -15,7 +15,6 @@ function IntroText({ intro = "..." }) {
     </View>
   );
 }
-
 export const dynamicParams = false;
 
 export function generateStaticParams() {

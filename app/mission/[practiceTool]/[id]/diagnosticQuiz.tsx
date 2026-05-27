@@ -7,6 +7,8 @@ import diagnosticData from "@/assets/levels/diagnostic.json";
 import { db } from '@/utils/firebase';
 import { doc, setDoc, getDoc, arrayUnion } from 'firebase/firestore';
 import { useAuth } from '@/context/useAuth';
+import { isMobile } from "@/utils/isMobile";
+import { Alert } from "react-native";
 
 /*
   Logique globale du diagnostic :
@@ -15,7 +17,7 @@ import { useAuth } from '@/context/useAuth';
   - Les questions sans bonne réponse (isThereAGoodAnswer: false) passent automatiquement
   - À la fin, calcule le score en points et recommande un niveau, puis sauvegarde dans Firestore
 */
-async function checkDiagnostic(user) {
+async function checkDiagnostic(user: any) {
   // Check if the subcollection exists 
   const snap = await getDoc(doc(db, "users", user.uid,"diagnosticResult","result"));
   
@@ -26,10 +28,22 @@ async function checkDiagnostic(user) {
       
 }
 
-async function saveDiagnosticResult(user, scorePercent: number, recommendedLevel: number, profile: any[]) {
+async function saveDiagnosticResult(user: any, scorePercent: number, recommendedLevel: number, profile: any[]) {
   if (!user) return;
 
   const ref = doc(db, "users", user.uid, "diagnosticResult", "result");
+  const userRef = doc(db, "users", user.uid);
+
+  let course = "";
+  if (recommendedLevel < 3) course = "beginner";
+  else if (recommendedLevel < 5) course = "intermediate";
+  else course = "advanced";
+
+  // Vérifie que le cours est valide
+  if (!course) {
+    console.warn("Niveau recommandé invalide :", recommendedLevel);
+    return;
+  }
 
   const attempt = {
     scorePercent,
@@ -37,8 +51,28 @@ async function saveDiagnosticResult(user, scorePercent: number, recommendedLevel
     profile,
     createdAt: new Date(),
   };
+  
+  try {
+    
+    // Ajoute la tentative à l'historique
+    const diagnosticRef = doc(db, "users", user.uid, "diagnosticResult", "result");
+    await setDoc(diagnosticRef, { attempts: arrayUnion(attempt) }, { merge: true });
+    
+    // Met à jour le profil utilisateur (avec merge pour ne rien écraser)
+    const userRef = doc(db, "users", user.uid);
+    await setDoc(userRef, { course }, { merge: true });
+    
+    // Informe l'utilisateur
+    if (isMobile) Alert.alert("Diagnostic sauvegardé !");
+    alert("Diagnostic sauvegardé !");
+    
+  } catch (error: any) {      
 
-  await setDoc(ref, { attempts: arrayUnion(attempt) }, { merge: true });
+    // Informe l'utilisateur
+    if (isMobile) Alert.alert("Erreur :", error);
+    alert("Erreur :" + error);
+
+  }
 }
 
 // Calcule le niveau recommandé en fonction du score en %

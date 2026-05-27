@@ -2,6 +2,7 @@ import * as Speech from 'expo-speech';
 import { View, StyleSheet, TouchableOpacity} from 'react-native'
 import Entypo from '@expo/vector-icons/Entypo';
 import { isMobile } from '@/utils/isMobile';
+
 type Answer = {
     text: string;
 };

@@ -1,14 +1,19 @@
 import { ScrollableScreen } from "@/components/scrollable-screen";
-import WatermarkAbsolute from "@/components/ui/watermark";
 import { isMobile } from "@/utils/isMobile";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useUserProfile } from "@/context/useUserProfile";
+import { ActivityIndicator } from "react-native";
+import ProgressBar from "@/components/ui/progress-bar";
+import { Stack, usePathname } from "expo-router";
 
 function HeaderSection() {
+  const { profile } = useUserProfile();
   return (
     <View style={styles.headerRow}>
       <View style={styles.levelAndProgress}>
-        <Text style={styles.text}>{"Niveau. 1"}</Text>
-        <View style={styles.progressBar}></View>
+        <Text style={styles.text}>Niveau {profile?.level}</Text>
+        {/* <View style={styles.progressBar}></View> */}
+        <ProgressBar fill={profile?.experience}/> 
       </View>
 
       <TouchableOpacity style={styles.addButton} onPress={() => {}} disabled>
@@ -34,6 +39,16 @@ function HeaderSection() {
 }
 
 export default function ProfilScreen() {
+  const { profile, loading } = useUserProfile();
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   return (
     <ScrollableScreen
       style={styles.mainContainer}
@@ -49,13 +64,13 @@ export default function ProfilScreen() {
             style={styles.mascotImage}
           />
           <View style={styles.statsContainer}>
-            <Text style={styles.profileNameText}>{"Nom du profil"}</Text>
+            <Text style={styles.profileNameText}>{profile.firstName} {profile?.lastName}</Text>
             <View style={styles.progressContainer}>
               <Text style={styles.text}>{"0/6 succès débloqués (0%)"}</Text>
               <View style={styles.progressBar}></View>
             </View>
-            <View style={styles.progressContainer}>
               <Text style={styles.text}>{"Progression dans le jeu (0%)"}</Text>
+            {/* <View style={styles.progressContainer}>
               <View style={styles.progressBar}></View>
             </View>
             <View style={styles.rankContainer}>
@@ -67,11 +82,10 @@ export default function ProfilScreen() {
               <View style={styles.rankTextContainer}>
                 <Text style={styles.rankText}>{"Rang bronze"}</Text>
               </View>
-            </View>
+            </View> */}
           </View>
         </View>
       </View>
-      {/* <WatermarkAbsolute text="BIENTÔT DISPONIBLE" /> */}
     </ScrollableScreen>
   );
 }
@@ -80,7 +94,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mainContainerContent: {
-    borderWidth: 1,
     alignItems: "center",
     justifyContent: "flex-start",
     backgroundColor: "#FFFFFF",
@@ -97,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#EFEFEF",
     borderRadius: 8,
-    paddingVertical: 18,
+    paddingVertical: 25,
     marginRight: isMobile ? 4 : 9,
   },
   settingsButton: {
@@ -105,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#EFEFEF",
     borderRadius: 8,
-    paddingVertical: 18,
+    paddingVertical: 25,
   },
   mainContent: {
     backgroundColor: "#FFFFFF",
@@ -162,7 +175,7 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: "row",
     marginBottom: 32,
-    marginHorizontal: isMobile ? 16 : 32,
+    marginHorizontal:0,
   },
   headerButtonsRow: {
     width: 173,
@@ -189,6 +202,7 @@ const styles = StyleSheet.create({
   },
   profileNameText: {
     fontSize: 22,
+    fontWeight:'bold',
     color: "#0A2924",
     marginBottom: 16,
   },
@@ -196,7 +210,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#B2460B",
   },
-
   rankTextContainer: {
     width: 162,
     alignItems: "center",

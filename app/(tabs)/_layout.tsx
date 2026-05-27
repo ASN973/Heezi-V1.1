@@ -1,17 +1,21 @@
-import { Tabs } from "expo-router";
+import { Tabs, usePathname } from "expo-router";
 import { HapticTab } from "@/components/haptic-tab";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
-import { Dimensions, Image, StyleSheet, View } from "react-native";
+import { Dimensions, Image, StyleSheet, View, Platform } from "react-native";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AuthWrapper from '@/components/authWrapper'
 import DiagnosticGuard from "@/components/DiagnosticGuard";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme  ();
+  const colorScheme = useColorScheme();
   const screenWidth = Dimensions.get("window").width;
   const isMobile = screenWidth < 768; // Use bottom tab bar on screens smaller than 768px
-
+    if (Platform.OS === 'web') {
+      const pathname = usePathname();
+      const title = pathname.split("/").pop()
+      document.title = title?.[0].toUpperCase() + title?.slice(1);
+    }
   return (
     <AuthWrapper>
       <DiagnosticGuard>
@@ -102,7 +106,7 @@ export default function TabLayout() {
             }}
           />
           <Tabs.Screen
-            name="succes"
+            name="success"
             options={{
               title: "Succès",
               tabBarIcon: () => (
@@ -114,18 +118,20 @@ export default function TabLayout() {
                       ? styles.tabBarItemIconImageMobile
                       : styles.tabBarItemIconImage
                   }
+                  
                   />
               ),
+              tabBarLabel: "Success"
             }}
           />        
           <Tabs.Screen
             name="logout"
             options={{
-              title: "Déconnexion",
+              title: "Logout",
               tabBarIcon: () => (
                 <MaterialIcons 
                 name="logout"
-                size={30}
+                size={28}
                 color="black"
                 />
               ),
@@ -187,6 +193,7 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
   },
+
   // Mobile (bottom tab bar) styles
   tabBarStyleMobile: {
     

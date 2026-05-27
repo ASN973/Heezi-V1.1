@@ -4,7 +4,7 @@ import { SafeAreaView }  from "react-native-safe-area-context"
 import { auth, db } from '@/utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { isMobile } from '@/utils/isMobile';
-import { Image } from 'react-native';
+import { Image, Platform } from 'react-native';
 import { doc, setDoc } from 'firebase/firestore';
 import {
   View,
@@ -17,7 +17,6 @@ import {
 
 async function saveUserProfile(userInfo: object) {
   const user = auth.currentUser;
-  console.log(user)
   if (!user) return;
   try {
     await setDoc(
@@ -84,6 +83,8 @@ export default function RegisterScreen() {
       setLoading(false);
     }
   };
+  
+  if (Platform.OS === 'web') document.title = "Inscription";
 
   return (
     <View style={styles.body}>

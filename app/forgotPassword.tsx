@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Image, Platform } from "react-native";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "@/utils/firebase"; 
 import { router, Stack } from "expo-router";
@@ -9,6 +9,8 @@ export default function ForgotPasswordScreen() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  if (Platform.OS === 'web') document.title = "Mot de passe oublié";
   
   const handleReset = async () => {
     if (!email.trim()) {

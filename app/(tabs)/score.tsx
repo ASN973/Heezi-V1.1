@@ -2,6 +2,7 @@ import WatermarkAbsolute from "@/components/ui/watermark";
 import { isMobile } from "@/utils/isMobile";
 import {
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
